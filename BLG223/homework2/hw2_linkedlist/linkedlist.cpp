@@ -51,10 +51,29 @@ class Node {
         Node(Employee* emp) : employee(emp), next(nullptr) {}
 };
 
+/*
+I add new data to head of the linkedlist,
+so there is a reversed version of the employees,
+I will reverse it to take the ascending order version,
+and write it into the new csv file.
+*/
+Node* reverse_linkedlist(Node* head){
+    Node* bef_temp = nullptr;
+
+    while(head->next != nullptr){
+        Node* head_temp = head;
+        head = head->next;
+        head_temp->next = bef_temp;
+        bef_temp = head_temp;
+    }
+    head->next = bef_temp;
+    return head;
+}
+
 void addEmployee(Node* &employees_head, int id, int salary, int department){
     // creating new employee
     Employee* new_employee = new Employee(id, salary, department);
-    // assing the employee to the node
+    // assign the employee to the node
     Node* new_node = new Node(new_employee);
     // append it head of the linked list, and copy it important node ptr (employees_head)
     new_node->next = employees_head;
@@ -158,9 +177,9 @@ int main(int argc, char* argv[]){
             }
         } 
         else if(op == "UPDATE"){
-            // I cant able to use employee(the main head) in there,
-            //because update and delete functions should visit all the node
-            //(add is only use the head), that will lead to lose the head,
+            // I can't able to use employee(the main head) in there,
+            //because UPDATE and DELETE functions should visit all the node
+            //(ADD is only use the head), that will lead to lose the head,
             //I will escape it with using psuedo head
             Node* employees_head = employees; 
             string id_str, salary_str, department_str;
@@ -187,7 +206,8 @@ int main(int argc, char* argv[]){
     linked_list_file << title << "\n";
 
     // employees still represent the head
-    Node* writer = employees;
+    
+    Node* writer = reverse_linkedlist(employees);
     while(writer != nullptr){
         int id = (writer->employee)->get_id();
         int sal = (writer->employee)->get_salary();
