@@ -1,9 +1,9 @@
 - init:
-    run: rm -f hw1
+    run: rm -f ./bin/hw1
     blocker: true
 
 - build:
-    run: g++ -Wall -Werror src/main.cpp src/pokemon.cpp -I include -o hw1 -lm
+    run: g++ -Wall -Werror src/main.cpp src/pokemon.cpp -I include -o ./bin/hw1 -lm
     exit: 0
     points: 20
     blocker: true
@@ -12,47 +12,48 @@
 ###---Before Submitting please make sure you are passing all cases---###
 
 - case1:
-    run: ./hw1 enemyNames.txt pokemonNames.txt
+    run: ./bin/hw1 enemyNames.txt pokemonNames.txt
     script: 
-        - expect: 'Welcome to the Pokemon Game!(.*)Please enter your name:\s+'
+        - expect: 'Welcome to the Pokemon Game!\s*Please enter your name:\s*' # timeout: 20
         - send: "Ash"
-        - expect: 'Please choose one of these pokemons as your pokemon:(.*)1- Bulbasaur(.*)2- Charmender(.*)3- Squirtle(.*)Choice: '
+        - expect: 'Please choose one of these pokemons as your pokemon:\s*1- Bulbasaur\s*2- Charmender\s*3- Squirtle\s*Choice:\s*' # timeout: 20
         - send: "2"
-        - expect: '(.*)-------- Menu --------(.*)1. Fight for a badge(.*)2. Catch a Pokemon(.*)3. Number of Pokemons(.*)4. Number of Pokeballs(.*)5. Number of Badges(.*)6. Pokedex(.*)7. Exit(.*)Choice: '
+        - expect: '-------- Menu --------\s*1. Fight for a badge\s*2. Catch a Pokemon\s*3. Number of Pokemons\s*4. Number of Pokeballs\s*5. Number of Badges\s*6. Pokedex\s*7. Exit\s*Choice:\s*' # timeout: 20
         - send: "1"
-        - expect: 'You encounter with Misty and his/hers pokemon Alakazam(.*)Alakazam Health: 100 Attack: 10(.*)1- Fight(.*)2- Runaway(.*)Choice: '
+        - expect: 'You encounter with Misty and his/hers pokemon Alakazam\s*Alakazam Health:\s*100\s*Attack:\s*10\s*1- Fight\s*2- Runaway\s*Choice: ' # timeout: 20
         - send: "1"
-        - expect: 'Your Pokemons Healt: 90(.*)Misty Pokemons Healt: 80(.*)1- Fight(.*)2- Runaway(.*)Choice: '
+        - expect: 'Your Pokemons Healt:\s*90\s*Misty Pokemons Healt:\s*80\s*1- Fight\s*2- Runaway\s*Choice:\s*' # timeout: 20
         - send: "1"
-        - expect: 'Your Pokemons Healt: 80(.*)Misty Pokemons Healt: 60(.*)1- Fight(.*)2- Runaway(.*)Choice: '
+        - expect: 'Your Pokemons Healt:\s*80\s*Misty Pokemons Healt:\s*60\s*1- Fight\s*2- Runaway\s*Choice:\s*' # timeout: 20
         - send: "1"
-        - expect: 'Your Pokemons Healt: 70(.*)Misty Pokemons Healt: 40(.*)1- Fight(.*)2- Runaway(.*)Choice: '
+        - expect: 'Your Pokemons Healt:\s*70\s*Misty Pokemons Healt:\s*40\s*1- Fight\s*2- Runaway\s*Choice:\s*' # timeout: 20
         - send: "1"
-        - expect: 'Your Pokemons Healt: 60(.*)Misty Pokemons Healt: 20(.*)1- Fight(.*)2- Runaway(.*)Choice: '
+        - expect: 'Your Pokemons Healt:\s*60\s*Misty Pokemons Healt:\s*20\s*1- Fight\s*2- Runaway\s*Choice:\s*' # timeout: 20
         - send: "1"
-        - expect: 'Your Pokemons Healt: 50(.*)Misty Pokemons Healt: 0(.*)You Won!(.*)'
+        - expect: 'Your Pokemons Healt:\s*50\s*Misty Pokemons Healt:\s*0\s*You Won!\s*' # timeout: 20
         - send: "2"
-        - expect: 'You encounter with Arcanine Health: 100 Attack: 10(.*)1- Catch(.*)2- Runaway(.*)Choice: '
+        - expect: 'You encounter with Arcanine\s*Health:\s*100\s*Attack:\s*10\s*1- Catch\s*2- Runaway\s*Choice:\s*' # timeout: 20
         - send: "1"
-        - expect: 'You catch Arcanine(.*)'
+        - expect: 'You catch Arcanine\s*' # timeout: 20
         - send: "3"
-        - expect: '1(.*)'
+        - expect: '1\s*' # timeout: 20
         - send: "4"
-        - expect: '12(.*)'
+        - expect: '12\s*' # timeout: 20
         - send: "5"
-        - expect: '1(.*)'
+        - expect: '1\s*' # timeout: 20
         - send: "2"
-        - expect: '(.*)'
+        - expect: 'You encounter with Baltoy\s*Health:\s*100\s*Attack:\s*10\s*1- Catch\s*2- Runaway\s*Choice:\s*' # timeout: 20
         - send: "2"
-        - expect: '(.*)'
+        - expect: 'You ranaway\s*' # timeout: 20
         - send: "6"
-        - expect: '(.*)------- Pokedex -------(.*)Alakazam(.*)Arcanine(.*)Baltoy(.*)'
+        - expect: '------- Pokedex -------\s*Alakazam\s*Arcanine\s*Baltoy\s*\s*' # timeout: 20
         - send: "7"
     exit: 0
     points: 40
 
+
 - case2:
-    run: valgrind --leak-check=full ./hw1 enemyNames.txt pokemonNames.txt  
+    run: valgrind --leak-check=full ./bin/hw1 enemyNames.txt pokemonNames.txt  
     script:
         - expect: '.*'
         - send: "Ash"

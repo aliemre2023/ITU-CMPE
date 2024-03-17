@@ -23,8 +23,6 @@ int ENEMY_POKEMON_ATTACK = 10;  //You don't have to use this variable but its he
 //--------------------------------------------------------------//
 
 //---If Necessary Add Your Global Variables Here---// 
-string temp_enemyNames[100];
-string temp_pokemonNames[100];
 int catch_or_fight = 0;
 
 //-------------------------------------------------//
@@ -117,13 +115,14 @@ string* readEnemyNames(const char* argv){
     string count_str;
     string name;
     getline(file, count_str);
+    int count_int = stoi(count_str);
+
+    string* temp_enemyNames = new string[count_int];
     
     int i = 0; 
-    //cout << "Enemy Names: " << "\n";
     while(getline(file, name)){
         temp_enemyNames[i] = name;
         i++;
-        //cout << name << "\n";
     }
 
     return temp_enemyNames;
@@ -140,16 +139,15 @@ string* readPokemonNames(const char* argv){
     string count_str;
     string name;
     getline(file, count_str);
+    int count_int = stoi(count_str);
      
-    
+    string* temp_pokemonNames = new string[count_int];
 
     int i = 0;
-    //cout << "Pokemon Names: " << "\n";
     while(getline(file, name)){
         temp_pokemonNames[i] = name;
         i++;
         POK_COUNTER++;  
-        //cout << name << "\n";
     }
     return temp_pokemonNames;
     //---------------//
@@ -159,11 +157,6 @@ string* readPokemonNames(const char* argv){
 //-------------Code This Function-------------//
 player characterCreate(string playerName, int pokemonChoice){
     //---Code Here---//
-    player newPlayer;
-    
-
-    newPlayer.set_name(playerName);
-
     pokedex newPokedex;
     pokemon newPokemon("", 20);
     if(pokemonChoice == 1){
@@ -178,10 +171,7 @@ player characterCreate(string playerName, int pokemonChoice){
         newPokemon.set_name("Squirtle");
         newPokemon.set_atkValue(20);
     }
-    // default pokemon did not inserted
-    //newPokedex.updatePokedex(newPokemon);
-    //newPlayer.catchThePokemon();
-    //newPlayer.playerPokedex = newPokedex;
+    player newPlayer(playerName, newPokemon);
     newPlayer.main_pokemon(newPokemon);
     
     return newPlayer;
@@ -214,36 +204,32 @@ void fightEnemy(player* newPlayer, string* enemyNames, string* pokemonNames){
 
     pokemon enemy_poke(pokemonName, 10);
     enemy newEnemy(enemyName, enemy_poke);
+    newPlayer->playerPokedex.updatePokedex(enemy_poke);
 
-    int my_atk = newPlayer->plyr_atk(); // 20?
-    int en_atk = newEnemy.enmy_atk(); // 10
-    cout << my_atk << " " << en_atk << "\n";
-    
+    int my_atk = newPlayer->getPokemon().get_atkValue(); // 20?
+    int en_atk = newEnemy.getPokemon().get_atkValue(); // 10
 
     cout << "You encounter with " << enemyName << " and his/hers pokemon " << pokemonName << "\n";
-    cout << pokemonName << " Health: " << newEnemy.enmy_hp() << " Attack:" << en_atk << "\n";
+    cout << pokemonName << " Health: " << newEnemy.getPokemon().get_hpValue() << " Attack:" << en_atk << "\n";
     cout << "1- Fight" << "\n"; 
     cout << "2- Runaway" << "\n";
     cout << "Choice: ";
     int choice;
     cin >> choice;
 
-    while(newPlayer->plyr_hp() > 0 && newEnemy.enmy_hp() > 0){
+    while(newPlayer->getPokemon().get_hpValue() > 0 && newEnemy.getPokemon().get_hpValue() > 0){
         if(choice == 1){
-            newPlayer->set_plyr_hp(newPlayer->plyr_hp() - en_atk);
-            newEnemy.set_enmy_hp(newEnemy.enmy_hp() - my_atk);
+            newPlayer->getPokemon().set_hpValue((newPlayer->getPokemon().get_hpValue()) - (en_atk));
+            newEnemy.getPokemon().set_hpValue((newEnemy.getPokemon().get_hpValue()) - (my_atk));
 
-            cout << "Your Pokemons Healt: " << newPlayer->plyr_hp() << "\n";
-            cout << enemyName << " Pokemons Healt: " << newEnemy.enmy_hp() << "\n";
+            cout << "Your Pokemons Healt: " << newPlayer->getPokemon().get_hpValue() << "\n";
+            cout << enemyName << " Pokemons Healt: " << newEnemy.getPokemon().get_hpValue() << "\n";
 
-            if(newEnemy.enmy_hp() <= 0){
-                cout << "You Won!" << "\n";
-                newPlayer->set_badgeNumber();
-                newPlayer->playerPokedex.updatePokedex(enemy_poke);
-                newPlayer->catchThePokemon();
+            if(newEnemy.getPokemon().get_hpValue() <= 0){
+                newPlayer->battleWon();
                 break;
             }
-            else if(newPlayer->plyr_hp() <= 0){
+            else if(newPlayer->getPokemon().get_hpValue() <= 0){
                 cout << "You Lose!" << "\n";
                 break;
             }
@@ -274,6 +260,7 @@ void catchPokemon(player* newPlayer, string* pokemonNames) {
     int poke_hp = newPokemon.get_hpValue();
     int poke_atk = newPokemon.get_atkValue();
 
+    newPlayer->playerPokedex.updatePokedex(newPokemon);
 
     cout << "You encounter with " << poke_name << " Health: " << poke_hp << " Attack: " << poke_atk << "\n";
     cout << "1- Catch" << "\n";
@@ -283,15 +270,12 @@ void catchPokemon(player* newPlayer, string* pokemonNames) {
     cin >> choice;
 
     if(choice == 1){
-        newPlayer->playerPokedex.updatePokedex(newPokemon);
-        newPlayer->catchThePokemon();
+        newPlayer->catchThePokemon(newPokemon);
     }
     else if(choice == 2){
-        cout << "You ran away" << "\n";
+        cout << "You ranaway" << "\n";
     }
     catch_or_fight++;
     //---------------//
 }
-
-
 //--------------------------------------------//
