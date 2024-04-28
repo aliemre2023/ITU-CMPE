@@ -105,17 +105,16 @@ void Simulation::run(){
         if(type == 'w'){
             W += X;     
             for(int i = 0 ; i < X; i++){
-                int random_index = rand() % m_labor_market.size();
-                m_factory->addUnit(m_labor_market[random_index]);
-                m_labor_market.erase(m_labor_market.begin() + random_index);
+                Worker new_worker = hireRandomWorker(); 
+                m_factory->addUnit(new_worker);
             }
         }
         if(type == 'm'){
             M += X;
             for(int i = 0 ; i < X; i++){
-                int random_index = rand() % m_machines_market.size();
-                m_factory->addUnit(m_machines_market[random_index]);
-                m_machines_market.erase(m_machines_market.begin() + random_index);
+                Machine new_machine = buyRandomMachine(); 
+                m_factory->addUnit(new_machine);
+                
             }
         }
         if(type == 'p'){
@@ -142,6 +141,19 @@ void Simulation::run(){
         
     }
 
-    cout << "Congrats! You have earned " << m_factory->getCapital() - 100.0f <<  " in " << m_total_days << " days";
-            
+    cout << "Congrats! You have earned " << m_factory->getCapital() - 100.0f <<  " in " << m_total_days << " days";          
+}
+
+Machine Simulation::buyRandomMachine(){
+    int random_index = rand() % m_machines_market.size();
+    Machine new_machine = m_machines_market[random_index];
+    m_machines_market.erase(m_machines_market.begin() + random_index);
+    return new_machine;
+}
+
+Worker Simulation::hireRandomWorker(){
+    int random_index = rand() % m_labor_market.size();
+    Worker new_worker = m_labor_market[random_index];
+    m_labor_market.erase(m_labor_market.begin() + random_index);
+    return new_worker;
 }
