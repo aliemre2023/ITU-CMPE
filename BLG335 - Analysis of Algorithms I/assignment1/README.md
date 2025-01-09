@@ -1,0 +1,1 @@
+Before the run this project, [nemequ-munit](https://github.com/nemequ/munit) repository should be coppied to the munit folder. Don't forget to replace commented tweet structure (in main.cpp) with the tweet.h content.
