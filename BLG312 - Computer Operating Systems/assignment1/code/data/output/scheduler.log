@@ -1,0 +1,35 @@
+[2025-03-22 01:09:44] [INFO] [PRC.c] - FORK, jobA
+[2025-03-22 01:09:44] [INFO] [PRC.c] - FORK, jobB
+[2025-03-22 01:09:44] [INFO] [PRC.c] - FORK, jobC
+[2025-03-22 01:09:44] [INFO] [PRC.c] - RESUME, jobC (PID: 84251) SIGCONT
+[2025-03-22 01:09:44] [INFO] [PRC.c] - EXECUTE, jobC (PID: 84251) EXECVP
+[2025-03-22 01:09:44] [INFO] [JOB.c] - Job jobC running: 1/4 seconds completed
+[2025-03-22 01:09:45] [INFO] [PRC.c] - FORK, jobD
+[2025-03-22 01:09:45] [INFO] [JOB.c] - Job jobC running: 2/4 seconds completed
+[2025-03-22 01:09:46] [INFO] [JOB.c] - Job jobC running: 3/4 seconds completed
+[2025-03-22 01:09:47] [INFO] [PRC.c] - RAN-PAUSED, jobC, 3 SIGSTOP
+[2025-03-22 01:09:47] [INFO] [PRC.c] - RESUME, jobD (PID: 84257) SIGCONT
+[2025-03-22 01:09:47] [INFO] [PRC.c] - EXECUTE, jobD (PID: 84257) EXECVP
+[2025-03-22 01:09:47] [INFO] [JOB.c] - Job jobD running: 1/1 seconds completed
+[2025-03-22 01:09:48] [INFO] [PRC.c] - COMPLETED, jobD (PID: 84257) SIGKILL
+[2025-03-22 01:09:48] [INFO] [PRC.c] - RESUME, jobC (PID: 84251) SIGCONT
+[2025-03-22 01:09:48] [INFO] [JOB.c] - Job jobC running: 4/4 seconds completed
+[2025-03-22 01:09:49] [INFO] [PRC.c] - COMPLETED, jobC (PID: 84251) SIGKILL
+[2025-03-22 01:09:49] [INFO] [PRC.c] - RESUME, jobB (PID: 84250) SIGCONT
+[2025-03-22 01:09:49] [INFO] [PRC.c] - EXECUTE, jobB (PID: 84250) EXECVP
+[2025-03-22 01:09:49] [INFO] [JOB.c] - Job jobB running: 1/3 seconds completed
+[2025-03-22 01:09:50] [INFO] [JOB.c] - Job jobB running: 2/3 seconds completed
+[2025-03-22 01:09:51] [INFO] [JOB.c] - Job jobB running: 3/3 seconds completed
+[2025-03-22 01:09:52] [INFO] [PRC.c] - COMPLETED, jobB (PID: 84250) SIGKILL
+[2025-03-22 01:09:52] [INFO] [PRC.c] - RESUME, jobA (PID: 84249) SIGCONT
+[2025-03-22 01:09:52] [INFO] [PRC.c] - EXECUTE, jobA (PID: 84249) EXECVP
+[2025-03-22 01:09:52] [INFO] [JOB.c] - Job jobA running: 1/6 seconds completed
+[2025-03-22 01:09:53] [INFO] [JOB.c] - Job jobA running: 2/6 seconds completed
+[2025-03-22 01:09:54] [INFO] [JOB.c] - Job jobA running: 3/6 seconds completed
+[2025-03-22 01:09:55] [INFO] [PRC.c] - RAN-PAUSED, jobA, 3 SIGSTOP
+[2025-03-22 01:09:55] [INFO] [PRC.c] - RESUME, jobA (PID: 84249) SIGCONT
+[2025-03-22 01:09:55] [INFO] [JOB.c] - Job jobA running: 4/6 seconds completed
+[2025-03-22 01:09:56] [INFO] [JOB.c] - Job jobA running: 5/6 seconds completed
+[2025-03-22 01:09:57] [INFO] [JOB.c] - Job jobA running: 6/6 seconds completed
+[2025-03-22 01:09:58] [INFO] [PRC.c] - COMPLETED, jobA (PID: 84249) SIGKILL
+[2025-03-22 01:09:59] [INFO] [PRC.c] - All tasks done
