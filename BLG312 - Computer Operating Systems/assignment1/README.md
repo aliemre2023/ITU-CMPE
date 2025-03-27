@@ -1,14 +1,19 @@
 This is first assignment of Operating System Lecture, Simple Round Robin (RR) Scheduling implementation in C
 
 # How to run
-Dockerfile and json given in the repsitory, firstly setup your docker environment
+1 ) Make sure you are in the code folder:
+```
+cd code
+```
 
-To build:
+
+2 ) Dockerfile and json given in the repsitory, firstly setup your docker environment.
+
+3 ) To build:
 ```
 make build
 ```
-
-To run:
+4 ) To run:
 ```
 make run
 ```
