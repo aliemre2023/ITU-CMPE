@@ -1,0 +1,5 @@
+bursa/ 
+bursa/ file1.txt 
+eppur sie mouve
+Error: Directory bursa is not empty. Found: c
+

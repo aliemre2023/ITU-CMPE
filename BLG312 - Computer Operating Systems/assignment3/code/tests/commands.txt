@@ -1,0 +1,15 @@
+mkfs
+mkdir_fs /adana
+mkdir_fs /adana/bursa
+ls_fs /adana
+create_fs /adana/file1.txt
+ls_fs /adana
+write_fs /adana/file1.txt "eppur sie mouve"
+read_fs /adana/file1.txt
+mkdir_fs /adana/bursa/c
+rmdir_fs /adana/bursa
+rmdir_fs /adana/bursa/c
+rmdir_fs /adana/bursa
+delete_fs /adana/file1.txt
+rmdir_fs /adana
+ls_fs /

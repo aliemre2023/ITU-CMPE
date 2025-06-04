@@ -1,0 +1,15 @@
+[2025-06-03 18:50:23] [INFO] Filesystem created successfully: disk.img
+[2025-06-03 18:50:23] [INFO] Successfully created directory: /adana
+[2025-06-03 18:50:23] [INFO] Successfully created directory: /adana/bursa
+[2025-06-03 18:50:23] [INFO] Listed directory /adana: found 1 entries
+[2025-06-03 18:50:23] [INFO] Successfully created file: /adana/file1.txt
+[2025-06-03 18:50:23] [INFO] Listed directory /adana: found 2 entries
+[2025-06-03 18:50:23] [INFO] Successfully wrote 15 bytes to /adana/file1.txt
+[2025-06-03 18:50:23] [INFO] Successfully read 15 bytes from /adana/file1.txt
+[2025-06-03 18:50:23] [INFO] Successfully created directory: /adana/bursa/c
+[2025-06-03 18:50:23] [INFO] Failed to remove directory: /adana/bursa
+[2025-06-03 18:50:23] [INFO] Successfully removed directory: /adana/bursa/c
+[2025-06-03 18:50:23] [INFO] Successfully removed directory: /adana/bursa
+[2025-06-03 18:50:23] [INFO] Successfully deleted file: /adana/file1.txt
+[2025-06-03 18:50:23] [INFO] Successfully removed directory: /adana
+[2025-06-03 18:50:23] [INFO] Listed directory /: found 0 entries
