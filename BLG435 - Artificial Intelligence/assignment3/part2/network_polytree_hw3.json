@@ -1,0 +1,139 @@
+{
+  "domain": [0, 1],
+  "semantics": "Binary variables, 0=False, 1=True.",
+  "variables": [
+    {
+      "name": "A",
+      "parents": [],
+      "cpt": [
+        { "when": {}, "p_true": 0.6 }
+      ]
+    },
+
+    { "name": "B", "parents": ["A"],
+      "cpt": [
+        { "when": { "A": 0 }, "p_true": 0.2 },
+        { "when": { "A": 1 }, "p_true": 0.8 }
+      ]
+    },
+    
+    { "name": "C", "parents": ["A"],
+      "cpt": [
+        { "when": { "A": 0 }, "p_true": 0.3 },
+        { "when": { "A": 1 }, "p_true": 0.7 }
+      ]
+    },
+
+    { "name": "D", "parents": ["B"],
+      "cpt": [
+        { "when": { "B": 0 }, "p_true": 0.1 },
+        { "when": { "B": 1 }, "p_true": 0.6 }
+      ]
+    },
+    { "name": "E", "parents": ["B"],
+      "cpt": [
+        { "when": { "B": 0 }, "p_true": 0.4 },
+        { "when": { "B": 1 }, "p_true": 0.9 }
+      ]
+    },
+    { "name": "F", "parents": ["C"],
+      "cpt": [
+        { "when": { "C": 0 }, "p_true": 0.25 },
+        { "when": { "C": 1 }, "p_true": 0.75 }
+      ]
+    },
+    { "name": "G", "parents": ["C"],
+      "cpt": [
+        { "when": { "C": 0 }, "p_true": 0.2 },
+        { "when": { "C": 1 }, "p_true": 0.85 }
+      ]
+    },
+
+    { "name": "H", "parents": ["D"],
+      "cpt": [
+        { "when": { "D": 0 }, "p_true": 0.05 },
+        { "when": { "D": 1 }, "p_true": 0.7 }
+      ]
+    },
+    { "name": "I", "parents": ["E"],
+      "cpt": [
+        { "when": { "E": 0 }, "p_true": 0.15 },
+        { "when": { "E": 1 }, "p_true": 0.8 }
+      ]
+    },
+    { "name": "J", "parents": ["E"],
+      "cpt": [
+        { "when": { "E": 0 }, "p_true": 0.3 },
+        { "when": { "E": 1 }, "p_true": 0.9 }
+      ]
+    },
+    { "name": "K", "parents": ["F"],
+      "cpt": [
+        { "when": { "F": 0 }, "p_true": 0.2 },
+        { "when": { "F": 1 }, "p_true": 0.85 }
+      ]
+    },
+    { "name": "L", "parents": ["G"],
+      "cpt": [
+        { "when": { "G": 0 }, "p_true": 0.25 },
+        { "when": { "G": 1 }, "p_true": 0.9 }
+      ]
+    },
+    { "name": "M", "parents": ["G"],
+      "cpt": [
+        { "when": { "G": 0 }, "p_true": 0.35 },
+        { "when": { "G": 1 }, "p_true": 0.8 }
+      ]
+    },
+
+    { "name": "N", "parents": ["I"],
+      "cpt": [
+        { "when": { "I": 0 }, "p_true": 0.1 },
+        { "when": { "I": 1 }, "p_true": 0.7 }
+      ]
+    },
+    { "name": "O", "parents": ["I"],
+      "cpt": [
+        { "when": { "I": 0 }, "p_true": 0.2 },
+        { "when": { "I": 1 }, "p_true": 0.75 }
+      ]
+    },
+    { "name": "P", "parents": ["J"],
+      "cpt": [
+        { "when": { "J": 0 }, "p_true": 0.2 },
+        { "when": { "J": 1 }, "p_true": 0.85 }
+      ]
+    },
+    { "name": "Q", "parents": ["L"],
+      "cpt": [
+        { "when": { "L": 0 }, "p_true": 0.15 },
+        { "when": { "L": 1 }, "p_true": 0.8 }
+      ]
+    },
+    { "name": "R", "parents": ["M"],
+      "cpt": [
+        { "when": { "M": 0 }, "p_true": 0.25 },
+        { "when": { "M": 1 }, "p_true": 0.75 }
+      ]
+    },
+    { "name": "S", "parents": ["M"],
+      "cpt": [
+        { "when": { "M": 0 }, "p_true": 0.3 },
+        { "when": { "M": 1 }, "p_true": 0.8 }
+      ]
+    },
+
+    { "name": "T", "parents": ["Q"],
+      "cpt": [
+        { "when": { "Q": 0 }, "p_true": 0.1 },
+        { "when": { "Q": 1 }, "p_true": 0.7 }
+      ]
+    },
+    { "name": "U", "parents": ["R"],
+      "cpt": [
+        { "when": { "R": 0 }, "p_true": 0.2 },
+        { "when": { "R": 1 }, "p_true": 0.8 }
+      ]
+    }
+  ]
+}

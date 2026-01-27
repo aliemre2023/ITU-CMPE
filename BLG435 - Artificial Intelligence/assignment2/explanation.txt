@@ -1,0 +1,27 @@
+Homework 2 — Regression & Classification with scikit-learn
+
+This assignment consists of two parts:
+
+Part A (Manual):
+Compute regression and classification metrics by hand using the provided questions in HW2_Manual_PartA.txt.
+Show your calculations clearly and include short explanations for each reasoning question. Scan your handwritten work and save it as a short PDF named HW2A.pdf.
+
+Part B (Programming):
+Work with the fixed scikit-learn datasets:
+
+Regression → load_diabetes
+
+Classification → load_breast_cancer
+
+Implement regression (LinearRegression, Ridge) and classification (LogisticRegression, RandomForest) models using Pipelines and GridSearchCV.
+Evaluate your models with proper metrics (MAE, MSE, R² for regression; Accuracy, Precision, Recall, F1, AUC for classification) and summarize results in tables.
+
+Due: Friday, November 21 at 23:59
+Submission: Upload a ZIP file containing:
+HW2A.pdf and HW2B.ipynb.
+
+All code must run without errors.
+Plagiarism or code sharing between groups is strictly prohibited.
+
+You may work individually or in pairs.
+In either case, both members’ names and student numbers must appear on all submitted files.

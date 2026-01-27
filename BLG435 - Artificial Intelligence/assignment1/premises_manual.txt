@@ -1,0 +1,24 @@
+# Knowledge base for MANUAL (paper) inference
+# Tasks (manual): Determine whether each of the following is derivable, and justify:
+#   Q1: operations_continue
+#   Q2: site_closed
+#   Q3: hazard
+#   Q4: evacuation
+#
+# Facts
+fact: leak_detected
+fact: power_on
+fact: valve_closed
+fact: supervisor_present
+# Note: 'trained_staff' is NOT a fact.
+
+# Rules
+leak_detected & power_on -> alarm
+alarm & supervisor_present -> response_team_called
+response_team_called & valve_closed -> pressure_isolated
+pressure_isolated & leak_detected -> hazard_mitigated
+leak_detected & valve_closed -> pressure_builds
+pressure_builds & leak_detected -> hazard
+hazard & response_team_called -> site_closed
+hazard_mitigated & power_on -> operations_continue
+response_team_called & trained_staff -> evacuation

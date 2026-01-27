@@ -1,0 +1,19 @@
+# Sample knowledge base for PYTHON (SymPy + pyDatalog)
+# Suggested queries: harvest_possible, healthy_crops, profit, logistics_ok
+
+# Facts
+fact: rain
+fact: have_seeds
+fact: sunlight
+fact: storage_ready
+fact: transport_available
+
+# Rules
+rain -> wet_ground
+wet_ground & have_seeds -> germination
+germination & sunlight -> grow
+grow -> harvest_possible
+grow & sunlight -> healthy_crops
+healthy_crops & storage_ready -> stored_goods
+stored_goods & transport_available -> logistics_ok
+harvest_possible & logistics_ok -> profit

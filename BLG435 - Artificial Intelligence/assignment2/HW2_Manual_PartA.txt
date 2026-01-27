@@ -1,0 +1,18 @@
+Homework 2 — Part A (Manual)
+
+Answer on paper (or as a typed PDF). Show your steps briefly.
+
+Q1) Regression metrics by hand
+y_true:  [3.0, 2.0, 4.0, 5.0]
+y_pred:  [2.5, 2.0, 3.5, 6.0]
+Compute: MAE, MSE, R^2 (use y_bar = average of y_true).
+
+Q2) Classification metrics by hand
+Confusion matrix (binary, positive = 1):
+TP=18, FP=6, FN=4, TN=22
+Compute: Accuracy, Precision, Recall, F1, and the (TPR, FPR) pair.
+
+Q3) Short reasoning
+(a) Why do we use Pipeline (with StandardScaler) for linear models?
+(b) Give one example of data leakage and how to avoid it in scikit-learn.
+(c) In imbalanced data, why might accuracy be misleading? Suggest a better metric.

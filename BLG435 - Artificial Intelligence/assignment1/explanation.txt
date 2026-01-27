@@ -1,0 +1,17 @@
+Homework 1 — Logical Inference
+
+This assignment has two parts:
+Part A (Manual Reasoning): Conduct logical inference by hand using premises_manual.txt.
+
+Translate each statement into propositional or first-order logic and show step-by-step reasoning (e.g., which rules you apply, which conclusions follow, and which cannot be derived). Scan your handwritten work and save it as a short PDF named HW1A.pdf.
+
+Part B (Programming): Implement inference in Python using SymPy and pyDatalog with premises_python.txt. Complete all TODOs in the provided notebook and compare both approaches.
+
+Submission: Upload a ZIP including:
+HW1A.pdf and HW1B.ipynb.
+
+All code must run without errors. Explain your findings briefly in the report section of part B.
+
+Plagiarism or code sharing is strictly prohibited.
+
+You may work individually or in pairs. In either case, both members’ full names and student numbers must appear on top of both the manual (Part A) and programming (Part B) submissions.
